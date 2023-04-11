@@ -1,10 +1,11 @@
-import mongoose from 'mongoose'
+import mongoose, { SchemaTypeOptions } from 'mongoose'
 
 const Schema = mongoose.Schema
 
 const profileSchema = new Schema({
   name: String,
-  photo: String
+  photo: String, 
+  moods: [{type: Schema.Types.ObjectId, ref:"Moods"}]
 },{
   timestamps: true,
 })
