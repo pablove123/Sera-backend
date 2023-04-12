@@ -3,3 +3,5 @@ import * as reviewsCtrl from '../controllers/reviews'
 import { decodeUserFromToken, checkAuth } from '../middleware/auth.js'
 
 const router = Router()
+
+router.get('/', reviewsCtrl.index)
