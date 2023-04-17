@@ -10,6 +10,7 @@ const create = async (req,res) => {
     const mood = await Moods.create(req.body)
     // const profile = await Profile.findById(req.user.profile)
     // experience.author = profile
+    
     res.status(200).json(experience)
   }catch(err){
     console.log(err)
