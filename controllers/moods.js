@@ -1,7 +1,13 @@
 import { Moods } from "../models/moods.js";
 
-function index(req, res) {
-  console.log("works")
+const index = async (req, res) => {
+  try {
+    const moods = await Moods.find({})
+    res.status(200).json(moods)
+  } catch (error) {
+    console.log(err)
+    res.status(500).json(err)
+  }
 }
 
 const create = async (req,res) => {
