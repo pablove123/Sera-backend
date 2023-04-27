@@ -24,7 +24,7 @@ const createComment = async (req, res) => {
     await mood.save()
     res.status(200).json(mood)
   } catch (error) {
-    
+    res.status(500).json(error)
   }
 }
 
