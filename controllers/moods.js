@@ -18,7 +18,14 @@ const create = async (req,res) => {
 }
 
 const createComment = async (req, res) => {
-
+  try {
+    const mood = await Moods.findById(req.params.id)
+    mood.comment.push(req.body)
+    await mood.save()
+    res.status(200).json(mood)
+  } catch (error) {
+    
+  }
 }
 
 export{
