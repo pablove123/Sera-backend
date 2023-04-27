@@ -6,11 +6,8 @@ function index(req, res) {
 
 const create = async (req,res) => {
   try{
-    // req.body.author = req.user.profile
-    const mood = await Moods.create(req.body)
-    // const profile = await Profile.findById(req.user.profile)
-    // experience.author = profile
-    res.status(200).json(mood)
+    const review = await Review.create(req.body)
+    res.status(200).json(review)
   }catch(err){
     console.log(err)
     res.status(500).json(err)

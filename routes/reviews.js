@@ -5,7 +5,7 @@ import { decodeUserFromToken, checkAuth } from '../middleware/auth.js'
 const router = Router()
 
 router.get('/', reviewsCtrl.index)
-router.get('/review', reviewsCtrl.create)
+router.post('/', reviewsCtrl.create)
 
 router.use(decodeUserFromToken)
 
