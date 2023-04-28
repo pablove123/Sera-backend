@@ -44,9 +44,20 @@ const createComment = async (req, res) => {
   }
 }
 
+const update = async (req, res) => {
+  try {
+    const review = await Review.findByIdAndUpdate(req.params.id, req.body, {new:true})
+    res.status(200).json(review)
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err)
+  }
+}
+
 export{
   index, 
   create, 
   createComment, 
-  deleteMood
+  deleteMood, 
+  update
 }
