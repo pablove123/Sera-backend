@@ -1,7 +1,13 @@
 import { Review } from "../models/review.js";
 
-function index(req, res) {
-  console.log("works")
+const index = async (req, res) => {
+  try {
+    const reviews = await Reviews.find({})
+    res.status(200).json(reviews)
+  } catch (error) {
+    console.log(err)
+    res.status(500).json(err)
+  }
 }
 
 const create = async (req,res) => {
