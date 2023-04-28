@@ -4,7 +4,7 @@ const index = async (req, res) => {
   try {
     const reviews = await Reviews.find({})
     res.status(200).json(reviews)
-  } catch (error) {
+  } catch (err) {
     console.log(err)
     res.status(500).json(err)
   }
@@ -22,17 +22,26 @@ const create = async (req,res) => {
 
 const deleteReview = async (req, res) => {
   try {
-    const review = await Reviews.findByIdAndDelete(req.params.id)
+    const review = await Review.findByIdAndDelete(req.params.id)
     res.status(200).json(review)
-  } catch (error) {
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err)
+  }
+}
+const update = async (req, res) => {
+  try {
+    const review = await Review.findByIdAndUpdate(req.params.id, req.body, {new:true})
+    res.status(200).json(review)
+  } catch (err) {
     console.log(err)
     res.status(500).json(err)
   }
 }
 
-
 export{
   index, 
   create, 
-  deleteReview
+  deleteReview, 
+  update
 }
