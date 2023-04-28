@@ -20,8 +20,19 @@ const create = async (req,res) => {
   }
 }
 
+const deleteReview = async (req, res) => {
+  try {
+    const review = await Reviews.findByIdAndDelete(req.params.id)
+    res.status(200).json(review)
+  } catch (error) {
+    console.log(err)
+    res.status(500).json(err)
+  }
+}
+
 
 export{
   index, 
   create, 
+  deleteReview
 }

@@ -23,6 +23,16 @@ const create = async (req,res) => {
   }
 }
 
+const deleteMood = async (req, res) => {
+  try {
+    const mood = await Moods.findByIdAndDelete(req.params.id)
+    res.status(200).json(mood)
+  } catch (error) {
+    console.log(err)
+    res.status(500).json(err)
+  }
+}
+
 const createComment = async (req, res) => {
   try {
     const mood = await Moods.findById(req.params.id)
@@ -37,5 +47,6 @@ const createComment = async (req, res) => {
 export{
   index, 
   create, 
-  createComment
+  createComment, 
+  deleteMood
 }

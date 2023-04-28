@@ -7,6 +7,7 @@ const router = Router()
 router.get('/', moodsCtrl.index)
 router.post('/', moodsCtrl.create)
 router.post('/comment', moodsCtrl.createComment)
+router.delete('/:id', moodsCtrl.deleteMood)
 
 router.use(decodeUserFromToken)
 

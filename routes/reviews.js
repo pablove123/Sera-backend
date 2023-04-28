@@ -6,6 +6,7 @@ const router = Router()
 
 router.get('/', reviewsCtrl.index)
 router.post('/', reviewsCtrl.create)
+router.delete('/:id', reviewsCtrl.deleteReview)
 
 router.use(decodeUserFromToken)
 
