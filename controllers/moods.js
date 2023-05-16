@@ -23,6 +23,17 @@ const create = async (req,res) => {
   }
 }
 
+const show = async (req,res) => {
+  try{
+    const mood = await Moods.findById(req.params.id)
+    // .populate("author")
+    res.status(200).json(experience)
+  }catch(err){
+    console.log(err)
+    res.status(500).json(err)
+  }
+}
+
 const deleteMood = async (req, res) => {
   try {
     const mood = await Moods.findByIdAndDelete(req.params.id)
@@ -59,5 +70,6 @@ export{
   create, 
   createComment, 
   deleteMood, 
-  update
+  update, 
+  show
 }

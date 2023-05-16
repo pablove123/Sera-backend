@@ -11,8 +11,10 @@ const commentSchema = new Schema({
 
 const moodSchema = new Schema({
   feeling: {type:String, enum:["Happy", "Sad", "Angry", "Nuetral", "Bored", "Relaxed"]}, 
-  game: String, 
-  comment: [commentSchema]
+  notes: String, 
+  // comment: [commentSchema]
+}, {
+timestamps: true,
 })
 
 
