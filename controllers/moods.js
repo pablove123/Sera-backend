@@ -27,7 +27,7 @@ const show = async (req,res) => {
   try{
     const mood = await Moods.findById(req.params.id)
     // .populate("author")
-    res.status(200).json(experience)
+    res.status(200).json(mood)
   }catch(err){
     console.log(err)
     res.status(500).json(err)
